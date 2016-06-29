@@ -1,0 +1,9 @@
+= simple_form_for(@article) do |f|
+	= f.error_notification
+	.form-inputs
+		= f.input :post, as: :bootsy, label: false
+		= f.association :subcategory, label: "Category"
+	.form-actions
+		= f.button :submit, class: "button button-primary"
+
+ 

@@ -1,0 +1,63 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '-g',
+1 verbose cli   'ionic' ]
+2 info using npm@2.14.3
+3 info using node@v4.1.0
+4 verbose install initial load of /usr/local/lib/package.json
+5 verbose readDependencies loading dependencies from /usr/local/lib/package.json
+6 silly cache add args [ 'ionic', null ]
+7 verbose cache add spec ionic
+8 silly cache add parsed spec Result {
+8 silly cache add   raw: 'ionic',
+8 silly cache add   scope: null,
+8 silly cache add   name: 'ionic',
+8 silly cache add   rawSpec: '',
+8 silly cache add   spec: '*',
+8 silly cache add   type: 'range' }
+9 silly addNamed ionic@*
+10 verbose addNamed "*" is a valid semver range for ionic
+11 silly addNameRange { name: 'ionic', range: '*', hasData: false }
+12 silly mapToRegistry name ionic
+13 silly mapToRegistry using default registry
+14 silly mapToRegistry registry https://registry.npmjs.org/
+15 silly mapToRegistry uri https://registry.npmjs.org/ionic
+16 verbose addNameRange registry:https://registry.npmjs.org/ionic not in flight; fetching
+17 verbose request uri https://registry.npmjs.org/ionic
+18 verbose request no auth needed
+19 info attempt registry request try #1 at 6:08:11 PM
+20 verbose request id 0fb0c414d1becfbd
+21 http request GET https://registry.npmjs.org/ionic
+22 info retry will retry, error on last attempt: Error: tunneling socket could not be established, cause=write EPROTO
+23 info attempt registry request try #2 at 6:08:21 PM
+24 http request GET https://registry.npmjs.org/ionic
+25 info retry will retry, error on last attempt: Error: tunneling socket could not be established, cause=write EPROTO
+26 info attempt registry request try #3 at 6:09:21 PM
+27 http request GET https://registry.npmjs.org/ionic
+28 verbose stack Error: tunneling socket could not be established, cause=write EPROTO
+28 verbose stack     at ClientRequest.onError (/usr/local/lib/node_modules/npm/node_modules/request/node_modules/tunnel-agent/index.js:174:17)
+28 verbose stack     at ClientRequest.g (events.js:260:16)
+28 verbose stack     at emitOne (events.js:77:13)
+28 verbose stack     at ClientRequest.emit (events.js:169:7)
+28 verbose stack     at TLSSocket.socketErrorListener (_http_client.js:259:9)
+28 verbose stack     at emitOne (events.js:77:13)
+28 verbose stack     at TLSSocket.emit (events.js:169:7)
+28 verbose stack     at onwriteError (_stream_writable.js:304:10)
+28 verbose stack     at onwrite (_stream_writable.js:322:5)
+28 verbose stack     at WritableState.onwrite (_stream_writable.js:89:5)
+29 verbose cwd /home/warlock/Development/hellomama
+30 error Linux 3.16.0-71-generic
+31 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "-g" "ionic"
+32 error node v4.1.0
+33 error npm  v2.14.3
+34 error code ECONNRESET
+35 error network tunneling socket could not be established, cause=write EPROTO
+35 error network This is most likely not a problem with npm itself
+35 error network and is related to network connectivity.
+35 error network In most cases you are behind a proxy or have bad network settings.
+35 error network
+35 error network If you are behind a proxy, please make sure that the
+35 error network 'proxy' config is set properly.  See: 'npm help config'
+36 verbose exit [ 1, true ]

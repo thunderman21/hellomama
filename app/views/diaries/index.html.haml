@@ -1,0 +1,30 @@
+.secondary-menu
+	.wrapper.clearfix
+		//show the 
+		.logo 
+			
+		.nav-links= link_to 'New Post', new_diary_path, class: "button button-primary-outline"
+//this is content area
+.wrapper.clearfix
+	.left_panel
+		- @diaries.each do |diary|
+			.content
+				= link_to simple_format(truncate(diary.post, :length => 250, :escape => false)), diary, class: "truncated"
+				.footer.clearfix
+					.time
+						posted by 
+						= image_tag diary.user.avatar.url(:thumb), height: "16", width: "16"
+						= link_to diary.user.name,'#'
+						= time_ago_in_words(diary.created_at)
+						%span
+							ago
+
+					.social
+						%span
+							%i.fa.fa-comments-o
+							= diary.comments.count 
+						%span
+							%i.fa.fa-heart-o
+							= diary.votes_for.size
+
+			

@@ -1,0 +1,30 @@
+.wrapper
+	.content
+		.body
+			%h2= @forum.title
+			= simple_format(@forum.post)
+		-if !@forum.user.avatar.nil?
+			= image_tag @forum.user.avatar.url(:thumb), class: "avatar"
+		= @forum.user.name
+		
+		.links
+			%span
+				%i.fa.fa-comments-o
+				= @forum.votes_for.size
+			= link_to like_forum_path(@forum), method: :get do
+				%span
+					%i.fa.fa-heart-o
+					= pluralize(@forum.get_upvotes.size, "likes")
+			-if current_user == @forum.user
+				= link_to "edit", edit_forum_path(@forum)
+				= link_to 'destroy', @forum, method: :delete, data:{confirm: 'are you sure'}
+			
+
+		%h2 Replies
+	= render partial: "comments/comments", locals:{commentable: @forum}
+	= render partial: "comments/form", locals:{commentable:@forum}
+
+	.links
+		= link_to 'Edit', edit_forum_path(@forum)
+		= link_to 'back', forums_path
+

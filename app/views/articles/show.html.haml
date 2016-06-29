@@ -1,0 +1,22 @@
+.wrapper
+	.content
+		= simple_format(@article.post)
+		.footer.clearfix
+			.time
+				= @article.user.name
+			.social
+				= @article.get_upvotes.size
+				%span
+					= link_to "like", like_article_path(@article), method: :get
+		= social_share_button_tag(simple_format(truncate(@article.post, :length => 100, :escape => false))) 
+
+		- if user_signed_in? and current_user == @article.user
+			= link_to 'edit', edit_article_path(@article)
+			= link_to 'back', articles_path
+			= link_to 'delete', @article, method: :delete, data: { confirm: 'Are you sure?' }
+		%h3 comments
+	= render partial: "comments/form", locals: {commentable:@article}
+	= render partial: "comments/comments", locals: {commentable: @article}
+	
+
+		

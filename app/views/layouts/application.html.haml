@@ -1,0 +1,43 @@
+!!!
+%html
+%head
+	%title hellomama
+	= stylesheet_link_tag    'application', media: 'all' 
+	= javascript_include_tag 'application'
+	= csrf_meta_tags
+	%meta{:name => "viewport", :content => "width=device-width, initial-scale=1"}
+%body
+	%header
+		.wrapper.clearfix
+			//has the logo
+			#logo= link_to 'hellomama', root_path
+			%a{:class => "menu", :href => "#"}
+				%i.fa.fa-bars
+			//navigation menu:floated to the right
+			%nav#main_nav.clearfix
+				= link_to 'Mom diaries', diaries_path, class: "nav-item"
+				= link_to 'Community', forums_path, class: "nav-item"
+				- if user_signed_in?
+					.dropdown
+						%a.dropdown-toggle.nav-item{:href => "#", "data-toggle" => "dropdown", "aria-haspopup" => "true", "aria-expanded" => "false"}
+							%i.fa.fa-bell-o
+							%span{"data-behaviour" => "unread-count"}
+						%ul.dropdown-menu{"role" => "menu"}
+							%li
+								%a{:href => "#link1"}
+									Dropdown #1
+								%a{:href => "#link2"}
+									Dropdown #2
+					= link_to 'sign out', destroy_user_session_path, method: :delete, class:"nav-item button button-primary "
+				- else
+					= link_to 'sign in', new_user_session_path, class:" nav-item button button-primary"
+					or
+					= link_to "sign up", new_user_registration_path, class: " nav-item button button-white-outline"
+	-if notice 
+		#notice-wrapper   
+			%p.notice= notice 
+	-elsif alert  
+		#notice-wrapper
+			%p.alert= alert 
+	//yield your awesome stuff here
+	= yield

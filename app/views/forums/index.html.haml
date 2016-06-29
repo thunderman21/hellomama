@@ -1,0 +1,36 @@
+.secondary-menu
+	.wrapper.clearfix
+		.logo 
+			= link_to 'recent', recent_forums_path
+			= link_to 'trending', trending_forums_path
+			= link_to 'unanswered', unanswered_forums_path
+		.nav-links= link_to 'ask a question', new_forum_path, class: "button button-primary-outline" 
+//maiin content area
+.wrapper.clearfix
+	.left_panel
+		- @forums.each do |forum|
+			.content.clearfix
+				.col-md-1
+					= image_tag forum.user.avatar.url(:thumb), height: "32", width: "32"
+				.col-md-11
+					.header
+						
+						= link_to forum.user.name, profile_path(forum.user)
+					= link_to forum.title, forum
+					.footer.clearfix
+						.time
+							asked
+							= time_ago_in_words(forum.created_at)
+							ago
+						.social
+							%span
+								%i.fa.fa-comments-o
+								= forum.comments.count
+							%span
+								%i.fa.fa-heart-o
+								= forum.votes_for.size
+	.right_panel
+		%h4 Top posts
+
+
+			

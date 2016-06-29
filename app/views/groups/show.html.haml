@@ -1,0 +1,25 @@
+.wrapper
+	.content
+		%h2= @group.name
+		= @group.bio
+		- if @group.users.include? current_user
+			= link_to "leave group", leave_group_path(@group), :method => :get, class: "button button-primary-outline"
+		- else
+			= link_to "join group", join_group_path(@group), :method => :get, class: "button button-primary-outline"
+		%hr
+		= render 'group_posts/form'
+	
+	- @group.group_post.each do |group_post|
+		.content
+			.header.clearfix
+				= group_post.user.try(:name)
+			= group_post.post
+			.footer.clearfix
+				.time
+					= time_ago_in_words(group_post.created_at) unless group_post.created_at.blank?
+				.social
+	- if current_user == @group.user
+		.links
+			= link_to 'Edit', edit_group_path(@group)
+			= link_to 'back', groups_path
+

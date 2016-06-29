@@ -1,0 +1,13 @@
+.secondary-menu
+	.wrapper.clearfix
+		.logo 
+			= link_to 'recent', recent_forums_path
+			= link_to 'trending', trending_forums_path
+			= link_to 'unanswered', unanswered_forums_path
+		.nav-links= link_to 'ask a question', new_forum_path, class: "button button-primary-outline" 
+//maiin content area
+.wrapper.clearfix
+	- @groups.each do |group|
+		.content
+			= link_to group.name, group
+				

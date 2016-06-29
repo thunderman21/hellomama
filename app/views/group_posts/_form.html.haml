@@ -1,0 +1,7 @@
+= simple_form_for([@group, @group.group_post.build], :html => { :multipart => true }) do |f|
+	.form-input
+		= f.input :post
+	.form-input
+		= file_field_tag "images[]", type: :file, multiple: true
+	.form-actions
+		= f.button :submit

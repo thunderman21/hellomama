@@ -1,0 +1,446 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require bootsy
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome";
+@import "social-share-button";
+//---variables---//
+
+$white: #fff;
+$primary-color:#3FDE65;
+$primary-highlight-color:#81E791;
+$secondary-color:#FFD405;
+$seconary-highlight-color:#66ee78;
+
+//---global styles---//
+html{
+	height:100%;
+}
+body{
+	height:100%;
+	font-family: Lora,'Times New Roman',serif;
+	margin:0;
+	background-color: #d1fad7;
+	color:#404040;
+	font-size:1.4em;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 800;
+}
+a {
+  color: #404040;
+}
+a:hover,
+a:focus {
+  color: #0085a1;
+}
+a img:hover,
+a img:focus {
+  cursor: zoom-in;
+}
+blockquote {
+  color: #808080;
+  font-style: italic;
+}
+p {
+    line-height: 1.5;
+    margin: 30px 0;
+}
+.wrapper{
+	width: 80%;
+	margin: 0 auto;
+}
+.clearfix:before, .clearfix:after {
+	content: " ";
+	display: table;
+}
+.clearfix:after {
+	clear: both;
+}
+.menu{
+	display:none;
+}
+
+.button{
+	border:none;
+	outline:none;
+	border-radius:.5rem;
+	padding: .75rem 2rem;
+	font-size: 1em;
+	color: $white;
+	text-decoration:none;
+	text-align:center;
+	&:hover{
+		text-decoration:none
+	}
+}
+.button-primary-outline{
+	color:$primary-color;
+	border:1px solid $primary-color;
+	border-radius:.5rem;
+		&:hover{
+			color:$primary-color;
+		}
+}
+.button-secondary-outline{
+	color:$secondary-color;
+	border:2px solid $secondary-color;
+	border-radius:.5rem;
+	a{
+		color:$secondary-color;
+		&:hover{
+			color:$secondary-color;
+		}
+	}
+		&:hover{
+			color:$secondary-color;
+		}
+}
+.button-white-outline{
+	color:$white;
+	border:2px solid $white;
+	border-radius:.5rem;
+	a{
+		color:$white;
+		&:hover{
+			color:$white;
+		}
+	}
+		&:hover{
+			color:$white;
+		}
+}
+.button-primary{
+	background: $secondary-color;
+	&:hover{
+		background: $secondary-color;
+		color: $white;
+	}
+}
+header{
+	padding: 1.5rem 0;
+	background-color:$primary-color;
+}
+#logo{
+	float:left;
+	a{
+		color: $white;
+		font-family: Lucida Grande;
+		font-weight: bold;
+		font-size: 1.7em;
+		text-decoration:none;
+		&:hover{
+			color: $white;
+			text-decoration:none;
+		}
+	}
+}
+nav{
+	color:$white;
+	float:right;
+	padding:.8rem 0;
+	font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	.dropdown{
+		display:inline;
+	}
+	.nav-item{
+		color:$white;
+		font-weight: 700;
+		text-decoration: none;
+		margin-left: 2rem;
+		&:hover{
+			color:$white;
+			text-decoration:none;
+		}
+	}
+}
+//---secondary menu---//
+.secondary-menu{
+	padding:1.5rem 0;
+	background-color:$white;
+	color:$secondary-color;
+	margin-bottom:.5rem;
+	a{
+		color: $primary-color;
+	}
+	.logo{
+		float:left;
+		font-size: 1.7rem;
+		margin:0;
+	}
+	.nav-links{
+		float:right;
+	}
+}
+
+//---awesome notice wrapper---//
+#notice-wrapper{
+	position: absolute;
+	top: 0;
+	width:100%; 
+	z-index: 999;
+	background: rgba(135,216,211,0.85);
+	p{
+		color:#fff;
+		padding:2.4rem 0;
+		text-align:center;
+		margin:0;
+		font-size:1.3rem;
+		font-weight: 700;
+		letter-spacing: 1px;
+	}
+}
+
+//---comments for each page---//
+.comment{
+	padding: 1.5rem 1rem;
+	background: $white;
+	margin-bottom:.5rem;
+	border-radius:4px;
+	.header, .footer{
+		padding: .5rem 0;
+	}
+	.header{
+		a{
+			color:$primary-color;
+		}
+	}
+}
+
+//---articles index page---//
+.articles{
+	padding:2rem 1rem;
+	background-color:$white;
+	margin-bottom:2rem;
+	border-radius: 4px;
+}
+
+//---forum index--//
+.content{
+	width:100%;
+	padding:2rem 2rem;
+	background-color:$white;
+	margin-bottom:.5rem;
+	border-radius:4px;
+	.links{
+		padding:1rem 0;
+	}
+	.body{
+		img{
+			width:100%;
+			display:inline;
+		}
+	}
+	
+	a{
+		color:black;
+		text-decoration:none;
+		&:hover{
+			color:black;
+			text-decoration:none;
+		}
+	.author{
+		a{
+			color:$secondary-color;
+		}
+	}
+}
+	.links{
+		color: $secondary-color;
+	}
+	.header{
+		color:$primary-color;
+	}
+}
+
+.time{
+	float:left;
+}
+.social{
+	float:right;
+	color: $primary-color;
+}
+.right_panel{
+	float:right;
+	width:34%;
+	background-color: $white;
+	h4{
+		text-align:center;
+		color: #A4A4A4;
+	}
+}
+.left_panel{
+	float:left;
+	width: 65%;
+}
+.avatar{
+	height:32px;
+	width:32px;
+	border-radius:10%;
+	
+}
+.follow-button {
+  text-transform: uppercase;
+  border-color: #4090db;
+  color: #4090db;
+  margin-left: 20px;
+  &:visited, &:focus, &:hover {
+    border-color: #2D6396;
+    color: #2D6396;
+  }
+}
+
+.unfollow-button {
+  text-transform: uppercase;
+  border-color: #66bd2b;
+  background-color: #66bd2b;
+  color: white;
+  margin-left: 20px;
+  &:visited, &:focus, &:hover {
+    border-color: #47821F;
+    background-color: #47821F;
+    color: white;
+  }
+}
+.img_circle{
+	height:100px;
+	width:100px;
+	border-radius:10%;
+}
+.login{
+	background-image: image-url("login.jpg");
+	height:100%;
+  box-sizing: border-box;
+  background-size:cover;
+  display: -webkit-flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+  display: flex;
+  color: $white;
+  h2{
+  	text-align:center;
+  }
+  a{
+  	color:$white;
+  }
+  .login-wrapper{
+  	width:20%;
+  	margin: 0 auto;
+  	vertical-align: middle;
+  }
+}
+.signup{
+	background-image: image-url("signup.jpg");
+	height:100%;
+  box-sizing: border-box;
+  background-size:cover;
+  display: -webkit-flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+  display: flex;
+  color: $white;
+  h2{
+  	text-align:center;
+  }
+  a{
+  	color:$white;
+  }
+  .login-wrapper{
+  	width:20%;
+  	margin: 0 auto;
+  	vertical-align: middle;
+  }
+}
+//tablet
+@media only screen and (max-width: 768px){
+	.wrapper{
+		width:100%;
+	}
+	#main_nav{
+		display: none;
+	}
+	#logo{
+		padding-left:1.2em;
+	}
+	.menu{
+		display:block;
+		float:right;
+		padding-right: 1.2em;
+		i{
+			font-size: 1.6em;
+			color: $white;
+			padding-top: .6rem;
+			}
+	}
+	#main_nav.active{
+		display:block;
+		margin: 0 auto;
+			.nav-item{
+			display: block;
+			padding: .5em 0;
+			&:last-child{
+				border-bottom:none;
+			}
+		}
+	}
+	//---secondary menu---//
+	.secondary-menu{
+		padding:1.5rem 0;
+		background-color:$white;
+		color:$secondary-color;
+		margin-bottom:.5rem;
+		.logo{
+			float:left;
+			font-size: 1.7rem;
+			margin:0;
+		}
+		.nav-links{
+			float:right;
+		}
+}
+}
+.content_center{
+	width: 60%;
+	margin:0 auto;
+	padding:.5em;
+
+}
+.content_left{
+	width: 20%;
+	float:left;
+	margin:0;
+	padding:.5em;
+	background-color: $white;
+	font-size:1.1em;
+}
+.content_right{
+	width: 20%;
+	float:right;
+	margin:0;
+	padding:.5em;
+}

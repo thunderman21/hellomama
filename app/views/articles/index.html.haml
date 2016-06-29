@@ -1,0 +1,35 @@
+.secondary-menu
+	.wrapper.clearfix
+		//show the 
+		.logo 
+			= link_to 'recent', recent_articles_path
+			= link_to 'trending', trending_articles_path
+
+		.nav-links= link_to 'New Article', new_article_path, class: "button button-primary-outline"
+//this is content are
+.wrapper.clearfix
+	.left_panel
+		- @articles.each do |article|
+			.content
+				= link_to simple_format(truncate(article.post, :length => 250, :escape => false)), article, class: "truncated"
+				
+				.footer.clearfix
+					.time
+						posted by 
+						= image_tag article.user.avatar.url(:thumb), height: "16", width: "16"
+						= link_to article.user.name, profile_path(article.user)
+						= time_ago_in_words(article.created_at)
+						%span
+							ago
+
+					.social
+						%span
+							%i.fa.fa-comments-o
+							= article.comments.count 
+						%span
+							%i.fa.fa-heart-o
+							= article.votes_for.size
+					
+
+	
+			

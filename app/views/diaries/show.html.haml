@@ -1,0 +1,14 @@
+.wrapper
+	.content
+		=simple_format(@diary.post)
+		%p= @diary.get_upvotes.size
+		%hr
+		= @d
+		= link_to "like", like_diary_path(@diary), method: :get
+
+		-if user_signed_in? and current_user == @diary.user
+			= link_to 'edit', edit_diary_path(@diary)
+			= link_to 'back', diary_path
+			= link_to 'delete', @diary, method: :delete, data:{ confirm: 'are you sure' }
+	= render partial: "comments/form", locals: {commentable:@diary}
+	= render partial: "comments/comments", locals: { commentable: @diary }

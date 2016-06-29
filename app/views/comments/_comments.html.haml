@@ -1,0 +1,13 @@
+- commentable.comments.each do |comment|
+	.comment
+		.header
+			= image_tag comment.user.avatar.url(:thumb), height: "32", width: "32"
+			= link_to comment.user.name, '#'
+			= time_ago_in_words(comment.created_at)
+			ago
+		= comment.post
+		- if current_user == comment.user
+			= link_to "x", [comment.commentable, comment], method: :delete, data: { confirm: 'are you sure' }
+			
+	
+

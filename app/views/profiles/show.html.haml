@@ -1,0 +1,30 @@
+.wrapper.clearfix
+	.left_panel
+		.content
+			.title
+				= image_tag @user.avatar.url(), class: "img_circle"
+				= @user.name
+				- if @user == current_user
+					= link_to 'Edit Profile', edit_user_registration_path(@user), class: 'button button-primary-outline'
+				- else
+					- if current_user_is_following(current_user.id, @user.id)
+						= link_to 'Following', unfollow_user_path, class: 'btn unfollow-button', id: 'unfollow-button', method: :post
+					- else
+						= link_to 'Follow', follow_user_path, class: 'btn follow-button', id: 'follow-button', method: :post
+
+		- if @diary.nil?
+			- if @user == current_user
+				.content
+					%p you don't have any posts
+			- else
+				.content
+					%p This user has not posted anything
+		- else
+			- @diary.each do |diary|
+				.content
+					= simple_format(diary.post)
+					= time_ago_in_words(diary.created_at) 
+					%span
+						ago
+	.right_panel
+		%h4.centered people to follow
