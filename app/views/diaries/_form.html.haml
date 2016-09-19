@@ -1,6 +1,6 @@
 =simple_form_for(@diary) do |f|
 	=f.error_notification
 	.form-input
-		= f.input :post, as: :bootsy
+		= f.input :post, as: :bootsy, label:false
 	.form-action
 		= f.button :submit, class: "button  button-primary"

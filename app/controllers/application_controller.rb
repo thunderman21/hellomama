@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  before_action :randomise
   #creates a custom layout for devise
   # layout :layout_by_resource
 

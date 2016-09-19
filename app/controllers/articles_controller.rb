@@ -65,6 +65,9 @@ class ArticlesController < ApplicationController
 
   def upvote
     @article.upvote_by current_user
+    if current_user != @article.user
+      Notification.create(recipient:@article.user, actor: current_user, action: "liked", notifiable: @article)
+    end
     redirect_to :back
   end
 

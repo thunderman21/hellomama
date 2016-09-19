@@ -29,7 +29,24 @@
 						%span
 							%i.fa.fa-heart-o
 							= article.votes_for.size
-					
+	.right_panel
+		.contents
+			.header
+				%h5 Groups you might like
+
+			.body
+				- @random_groups.each do |rand_group|
+					= link_to rand_group.name, rand_group, class: "item"
+
+		.contents
+			.header
+				%h5 Moms to follow
+			.body
+				-@random_users.each do |rand_user|
+					.item
+						= image_tag rand_user.avatar.url(), height: "50", width: "50"
+						= link_to rand_user.name, profile_path(rand_user)
+						
 
 	
 			

@@ -9,7 +9,7 @@
 		%hr
 		= render 'group_posts/form'
 	
-	- @group.group_post.each do |group_post|
+	- @group_posts.each do |group_post|
 		.content
 			.header.clearfix
 				= group_post.user.try(:name)

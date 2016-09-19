@@ -8,10 +8,10 @@ class CommentsController < ApplicationController
     @comment.save
     redirect_to @commentable, notice: "Your comment was successfully posted."
    	if current_user != @commentable.user
-    	Notification.create(recipient:@commentable.user, actor:current_user, action:"commented on", notifiable:@commentable)
+    	Notification.create(recipient:@commentable.user, actor:current_user, action:"commented_on", notifiable:@commentable)
     end
-    (load_commentable.users.uniq-[current_user]).each do |user|
-    	Notification.create(recipient: user, actor:current_user, action: "posted", notifiable:@commentable)
+    (load_commentable.users.uniq-[current_user, @commentable.user]).each do |user|
+    	Notification.create(recipient: user, actor:current_user, action: "commented", notifiable:@commentable)
     end
   end
   def edit

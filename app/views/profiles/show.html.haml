@@ -11,6 +11,12 @@
 						= link_to 'Following', unfollow_user_path, class: 'btn unfollow-button', id: 'unfollow-button', method: :post
 					- else
 						= link_to 'Follow', follow_user_path, class: 'btn follow-button', id: 'follow-button', method: :post
+				= @user.followers.count
+				%span
+					followers
+				= @user.following.count
+				%span
+					following
 
 		- if @diary.nil?
 			- if @user == current_user

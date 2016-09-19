@@ -19,16 +19,21 @@
 				= link_to 'Community', forums_path, class: "nav-item"
 				- if user_signed_in?
 					.dropdown
-						%a.dropdown-toggle.nav-item{:href => "#", "data-toggle" => "dropdown", "aria-haspopup" => "true", "aria-expanded" => "false"}
+						%a.dropdown-toggle.nav-item{:href => "#", "data-toggle" => "dropdown", "aria-haspopup" => "true", "aria-expanded" => "false", "data-behavior" => "notifications"}
 							%i.fa.fa-bell-o
 							%span{"data-behaviour" => "unread-count"}
+						%ul.dropdown-menu{"role" => "menu", "data-behavior" => "notification-items"}
+							%li
+								
+					.dropdown
+						%a.dropdown-toggle.nav-item{:href => "#", "data-toggle" => "dropdown", "aria-haspopup" => "true", "aria-expanded" => "false"}
+							= image_tag current_user.avatar.url(), height: "32", width: "32"
+							= current_user.name
+							%span
 						%ul.dropdown-menu{"role" => "menu"}
 							%li
-								%a{:href => "#link1"}
-									Dropdown #1
-								%a{:href => "#link2"}
-									Dropdown #2
-					= link_to 'sign out', destroy_user_session_path, method: :delete, class:"nav-item button button-primary "
+								= link_to 'go to profile', profile_path(current_user)
+								= link_to 'log out', destroy_user_session_path, method: :delete
 				- else
 					= link_to 'sign in', new_user_session_path, class:" nav-item button button-primary"
 					or

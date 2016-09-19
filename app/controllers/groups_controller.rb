@@ -7,7 +7,8 @@ class GroupsController < ApplicationController
 	end
 
 	def show 
-		
+		@group = Group.find(params[:id])
+		@group_posts =  @group.group_post.all.order("created_at desc")
 	end
 
 	def new

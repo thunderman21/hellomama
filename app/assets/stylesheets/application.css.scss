@@ -71,6 +71,17 @@ p {
 	width: 80%;
 	margin: 0 auto;
 }
+.right{
+	width:50%;
+	float:right;
+	height:100%;
+	background:$white;
+}
+.left{
+	width:50%;
+	float:left;
+	height:100%;
+}
 .clearfix:before, .clearfix:after {
 	content: " ";
 	display: table;
@@ -228,13 +239,6 @@ nav{
 	}
 }
 
-//---articles index page---//
-.articles{
-	padding:2rem 1rem;
-	background-color:$white;
-	margin-bottom:2rem;
-	border-radius: 4px;
-}
 
 //---forum index--//
 .content{
@@ -283,16 +287,36 @@ nav{
 }
 .right_panel{
 	float:right;
-	width:34%;
+	width:24%;
 	background-color: $white;
-	h4{
-		text-align:center;
-		color: #A4A4A4;
+	.contents{
+		padding: 1em;
+		
+		.body{
+			display: block;
+		}
+		a{
+			color: #A4A4A4;
+			&:hover{
+				color: #A4A4A4;
+				text-decoration: underline;
+			}
+		}
+	}
+	.avatar{
+		border-radius:50%;
+	}
+	.item{
+		display: block;
+		padding: 1rem;
+	}
+	h5{
+		color:$primary-color;
 	}
 }
 .left_panel{
 	float:left;
-	width: 65%;
+	width: 75%;
 }
 .avatar{
 	height:32px;
@@ -333,12 +357,6 @@ nav{
 	height:100%;
   box-sizing: border-box;
   background-size:cover;
-  display: -webkit-flex;
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  align-items: center;
-  display: flex;
   color: $white;
   h2{
   	text-align:center;
@@ -346,12 +364,40 @@ nav{
   a{
   	color:$white;
   }
-  .login-wrapper{
-  	width:20%;
+  
+}
+.login-wrapper{
+  	width:50%;
   	margin: 0 auto;
   	vertical-align: middle;
+  	margin-top: 20%;
+  	color: $primary-color;
+  	a{
+  		color: $primary-color;
+  		&:hover{
+  			color: $primary-color;
+  			text-decoration: underline;
+  		}
+  	}
+  	h3{
+  		color: #A4A4A4;
+  		text-align: center;
+  	}
+  	.form-control{
+  		border: 2px solid $primary-color;
+  		padding: 15px 15px;
+		  border-color: none;
+		  box-shadow: none;
+		  border-radius: none;
+		  &:focus{
+		  border: 2px solid $primary-color;
+		  border-color: none;
+		  box-shadow: none;
+		  border-radius: none;
+		  }
+		}
+
   }
-}
 .signup{
 	background-image: image-url("signup.jpg");
 	height:100%;
@@ -410,7 +456,7 @@ nav{
 	}
 	//---secondary menu---//
 	.secondary-menu{
-		padding:1.5rem 0;
+		padding:1.5em 1em;
 		background-color:$white;
 		color:$secondary-color;
 		margin-bottom:.5rem;
@@ -422,25 +468,8 @@ nav{
 		.nav-links{
 			float:right;
 		}
-}
-}
-.content_center{
-	width: 60%;
-	margin:0 auto;
-	padding:.5em;
-
-}
-.content_left{
-	width: 20%;
-	float:left;
-	margin:0;
-	padding:.5em;
-	background-color: $white;
-	font-size:1.1em;
-}
-.content_right{
-	width: 20%;
-	float:right;
-	margin:0;
-	padding:.5em;
+	}
+	.left_panel{
+		display: hidden;
+	}
 }
